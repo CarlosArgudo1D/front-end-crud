@@ -1,0 +1,16 @@
+<div *ngIf="reminders.length > 0; else noReminders">
+    <ul>
+      <li *ngFor="let reminder of reminders">
+        <h3>{{ reminder.title }}</h3>
+        <p>{{ reminder.reminder }}</p>
+        <p>Status: {{ reminder.status ? 'Completado' : 'Pendiente' }}</p>
+        <p>Importancia: {{ reminder.importance }}</p>
+        <hr />
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noReminders>
+    <p>No tienes recordatorios.</p>
+  </ng-template>
+  
