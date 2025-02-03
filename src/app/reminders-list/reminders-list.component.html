@@ -1,16 +1,22 @@
+<!-- Mostrar mensaje de error si no se pueden cargar los recordatorios -->
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<!-- Si hay recordatorios, mostrarlos -->
 <div *ngIf="reminders.length > 0; else noReminders">
-    <ul>
-      <li *ngFor="let reminder of reminders">
-        <h3>{{ reminder.title }}</h3>
-        <p>{{ reminder.reminder }}</p>
-        <p>Status: {{ reminder.status ? 'Completado' : 'Pendiente' }}</p>
-        <p>Importancia: {{ reminder.importance }}</p>
-        <hr />
-      </li>
-    </ul>
-  </div>
-  
-  <ng-template #noReminders>
-    <p>No tienes recordatorios.</p>
-  </ng-template>
-  
+  <ul>
+    <li *ngFor="let reminder of reminders">
+      <h3>{{ reminder.title }}</h3>
+      <p>{{ reminder.reminder }}</p>
+      <p>Status: {{ reminder.status ? 'Completado' : 'Pendiente' }}</p>
+      <p>Importancia: {{ reminder.importance }}</p>
+      <hr />
+    </li>
+  </ul>
+</div>
+
+<!-- Si no hay recordatorios -->
+<ng-template #noReminders>
+  <p>No tienes recordatorios.</p>
+</ng-template>
